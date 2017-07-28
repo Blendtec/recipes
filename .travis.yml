@@ -33,3 +33,5 @@ script:
 after_success:
   - ./node_modules/.bin/codecov
 
+notifications:
+    slack: blendtec:a5Z5i4z3iuWbHHDdlMRSMkiB
