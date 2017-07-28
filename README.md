@@ -1,5 +1,5 @@
 # recipes
-
+[![Build Status](https://travis-ci.org/Blendtec/recipes.svg?branch=master)](https://travis-ci.org/Blendtec/recipes)
 This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
 version 1.3.3
 
