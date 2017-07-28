@@ -43,6 +43,7 @@
     "@types/jasminewd2": "^2.0.2",
     "@types/lodash": "^4.14.52",
     "@types/node": "^8.0.0",
+    "codecov": "^2.2.0",
     "codelyzer": "~3.1.1",
     "commitizen": "2.9.5",
     "cz-jira-smart-commit": "^2.0.1",

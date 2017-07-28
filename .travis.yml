@@ -20,9 +20,7 @@ matrix:
   fast_finish: true
 
 install:
-  - npm install -g yo
   - npm install
-  - npm link
 
 before_script:
   - export DBUS_SESSION_BUS_ADDRESS=/dev/null
@@ -34,3 +32,4 @@ script:
 
 after_success:
   - ./node_modules/.bin/codecov
+
