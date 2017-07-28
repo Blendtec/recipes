@@ -60,6 +60,7 @@ typings/
 # IntelliJ Projects
 .idea
 
-# dist
+# build output
 dist
+reports/
 
