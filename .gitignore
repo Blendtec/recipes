@@ -60,3 +60,6 @@ typings/
 # IntelliJ Projects
 .idea
 
+# dist
+dist
+
