@@ -1,0 +1,28 @@
+var fs = require('fs');
+var path = require('path');
+var ShopifyAPI = require('shopify-node-api');
+
+var pageId = process.env.SHOPIFY_PAGE_ID;
+var Shopify = new ShopifyAPI({
+  shop: process.env.SHOPIFY_SHOP,
+  shopify_api_key: process.env.SHOPIFY_API_KEY,
+  access_token: process.env.SHOPIFY_API_PASSWORD
+});
+
+var indexPagePath = path.join(__dirname, '..', 'dist', 'index.html');
+fs.readFile(indexPagePath, "utf-8", function (err, data) {
+    if (!err) {
+        var put_data = {
+            page: {
+                body_html: data
+            }
+        };
+
+        Shopify.put("/admin/pages/" + pageId + ".json", put_data, function(err, data, headers) {
+            console.log("ERROR", err);
+            console.log("PUT RESULT", data);
+            console.log("PUT HEADERS", headers);
+        });
+    }
+});
+
