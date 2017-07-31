@@ -1,3 +1,2 @@
-#!/bin/sh
-echo "DEPLOY SCRIPT HERE"
+echo 'DEPLOY SCRIPT!!!!'
 exit 0
