@@ -38,6 +38,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  scripts: sh $TRAVIS_BUILD_DIRECTORY/.travis/deploy.sh
+  scripts: ./.travis/deploy.sh
   on:
     branch: master
