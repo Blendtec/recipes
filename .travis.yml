@@ -37,6 +37,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  scripts: "node ./.travisci/deploy.js"
+  scripts: node $TRAVIS_BUILD_DIRECTORY/.travisci/deploy.js
   on:
     branch: master
