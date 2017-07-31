@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 echo "DEPLOY SCRIPT HERE"
 exit 0
