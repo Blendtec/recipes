@@ -23,8 +23,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
-- chmod +x ./.travis/deploy.sh
-after_success:
+a -alter_success:
 - ./node_modules/.bin/codecov
 notifications:
   slack: blendtec:a5Z5i4z3iuWbHHDdlMRSMkiB
@@ -38,6 +37,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  scripts: ./.travis/deploy.sh
+  scripts: "./.travis/deploy.sh"
   on:
     branch: master
