@@ -23,6 +23,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
+- chmod +x ./.travis/deploy.sh
 after_success:
 - ./node_modules/.bin/codecov
 notifications:
@@ -37,6 +38,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  scripts: node $TRAVIS_BUILD_DIRECTORY/.travisci/deploy.js
+  scripts: sh $TRAVIS_BUILD_DIRECTORY/.travis/deploy.sh
   on:
     branch: master
