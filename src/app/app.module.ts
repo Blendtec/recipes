@@ -12,6 +12,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { AboutModule } from './about/about.module';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import { AboutModule } from './about/about.module';
     AppRoutingModule
   ],
   declarations: [AppComponent],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
