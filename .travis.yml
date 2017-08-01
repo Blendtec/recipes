@@ -42,7 +42,8 @@ deploy:
       secure: Il9zk3MOxurkDplYAZR5nIb8UwLD1EKc7m8ZMsrOcFU6R8aKhqfQAi02lIPZMgfdFCA+ll3aU3ENRahMhQWsNRL3zmINimaVkTrv91P6Zhp3CvT/fWRTHrKXgUrawI18NOmHEZaoUPY5SWYR2D89ljdf293gRtStmnjU9JdH3HOuDXaAcZ1j5p/oEn8gumn1mZHc2ajJm5RbhqGgtNCiEqP5g/0stKoio8BilHa6yDa/khiSjeVEUb9Os7rP5bumk0IXzALi9noYbCKElJ4JOP+81m9V/zEL5XKrFpT0z5HAwma15lSxdTjh+rO2a+6u0CK/JLuatf1tpz6P3sbHDYKOzDsdsz51DN+XeiLtPn5KE4zqwkWWA2iBzyJIj0OzU110szRYRootOyaitheFjhfrAHwFMaXLzT77/gFhpXPdCjfP7BM02uuUEIATMYZ0uQlrJYkroJh7FXVeixIeQBdno8hvLWV/GY2wAJbG1B0qq7TZ0Mn7fBtVaMdo7lP0kpqn0YCwAuMkGaXskxq/2c1Zg8sPQ6SW1QsrXCifgKjsxRlmK+LDDDbRRK8eWRpbvKVEoGKZ+aglWpJXvx8TS+3k1DpCI0Cj8Iu2Pe11i6TnC+EUULF9rQic+fiHaU1ghpc7UoUaXvRApWRzowxJJHCkTzyF9yNgypYivPFsPbc=
     bucket: recipe-client.blendtec.com
     local-dir: dist
-    acl: public_read
+    skip_cleanup: true
+    at stcl: public_read
     on:
       branch: master
   - provider: script
