@@ -43,7 +43,7 @@ deploy:
     bucket: recipe-client.blendtec.com
     local-dir: dist
     skip_cleanup: true
-    at stcl: public_read
+    acl: public_read
     on:
       branch: master
   - provider: script
