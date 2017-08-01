@@ -23,7 +23,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
-- npm run build
+- npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/
 after_success:
 - ./node_modules/.bin/codecov
 notifications:
