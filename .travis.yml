@@ -24,8 +24,8 @@ before_script:
 script:
 - npm run test:ci
 - pwd
-- ls
-- ls dist
+- echo $TRAVIS_BUILD_DIR
+- ls $TRAVIS_BUILD_DIR
 after_success:
 - ./node_modules/.bin/codecov
 notifications:
