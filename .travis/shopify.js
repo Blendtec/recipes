@@ -1,4 +1,3 @@
-console.log("Deploying Application...");
 var fs = require("fs");
 var path = require("path");
 var ShopifyAPI = require("shopify-node-api");
@@ -18,6 +17,7 @@ fs.readFile(indexPagePath, "utf-8", function (err, data) {
                 body_html: data
             }
         };
+        console.log("Deploying Page Body: ", data);
 
         Shopify.put("/admin/pages/" + pageId + ".json", put_data, function (err, data, headers) {
             if (err) {
@@ -28,6 +28,8 @@ fs.readFile(indexPagePath, "utf-8", function (err, data) {
                 return 1;
             }
         });
+    } else {
+        console.error("Error reading file: ", err);
     }
 });
 
