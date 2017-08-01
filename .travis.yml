@@ -23,8 +23,6 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
-- pwd
-- ls -al
 after_success:
 - ./node_modules/.bin/codecov
 notifications:
@@ -38,6 +36,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  script: ./deploy.sh
+  script: ./.travis/deploy.sh
   on:
     branch: master
