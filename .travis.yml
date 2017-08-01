@@ -8,7 +8,7 @@ node_js:
 - '7'
 - stable
 addons:
-  apt:
+  apt
     sources:
     - google-chrome
     packages:
@@ -36,8 +36,8 @@ env:
   - secure: pjTxxtpkIOT2MbYMYa/F2Pk873JwULWEl86cImEXLyynOgh93msG8VuehnkiZAqWeUmVI8Sq/OxfxTCI5ZjWjJThelbom1iD7XYVckoCMfIbn2XlfwNZgp6w+PmMANgdMsvUV/T59Bx/6wfoSVBajOSZfAz5RA5fG93MnluisjEXPB7PCCmKTXiSkJsMsl1hhZxw5TW+paKyh+JieRM1GjENAbve8WXeL4rFNnki9AQ6v91fJ1l2rz1Gf6LYNdS+3NKXKZLOeUffu6hg0NGewtmNCvnowfjgPP+3zpu0vEAynrUb17vDB5oAmifYPIWt6BQPQYAshxeewnN+ClKZnCz/pvQMmnGds0pcBi8ReI6HqqajQHc2b6P2rcmwMKVcPj9AKxVPnuyHRTEVtrm4Pnlmb/Jyl7KOJGMNEJw5HvuJJwLL0I7//hk9HPgNpx5NGCH0yy3MkatNWMbL6nGppHopDe1tX4VnrxmUQXzsZCSf3iOvyv89BgcLck/K4rpHWbqhyBJuQDnNnD+vL4Tnuu7tPYC77rAejGyQhkgKOi3dDQS+aT6otXUBdfSQqpv3mAyLIoav7x+yMBCFKwCIKkKI/dUavbPcAFx8fXbqNl4Vvyt+nVCQka9mf1QboCuYPNhoz0LwC+g3eej216iOTnjp6SNDg7BSfjQD77mkODg=
   - secure: o4NhhEE2I9SlToHPZRkukd7s+Sbaq0ABYvtwQQ1OsrHaCgKeRlMnWS5mqosLJUQJDuTiWrJSkQAQGI/dA4NEAOvdFNzIlSdlVMHGDg/Z3mbo1irms8ZOTXX5gBt65qHlYNHdKDSGLCeCoiS3L5GDUkuYnS1n+qYNx9Put7wdlvZHMuCy4E8EKeXLlIH0r/jEZAOeapNisFfDBjOk/B4c1Fhspc9mLVGG2mu1Qfd9+5nDun6AnLvZosIRWZauud3esLrtE1eX38NqKZ9Jtrh9+9zfmed3vOZ/vgdcQ9GDu44ASzx8yDJ3RoHZCqO2mIk4vRqG5376omWuZoHuNmjPDC1fLoJPJjiqGDUDgAdne4nRytdjD+qZysMxepSFZgB7N0TD2dVgTSs51WgzKr5CMCCmBFt+xfN6ZQAZ/ehWZJ4t2nqPoBhm33a8mOq6HPNYioFto+kYxFdpPdT9znIiFAGxJKab5rSq7X1rAGaf1elVAw4898JfGIbCFpZjxCksrXeti7LpljBrCclNXnCMS42LkpTAbp/Frpwu9cwWYrj7qGuX8p0fYuph1v+ISrmoRqPnGdwBtI2HvD60l0M5yyWnpkduMeHqDrVqaJdo5UHENbPrfdBumJtgyzCHCNPFqh84tHB6yzsWRbHIjkXf+3SVLrC1EYeHMBX6y4haCGM=
 deploy:
-  skip_cleanup: true
   provider: script
-  scripts: ./deploy.sh
+  script: ./deploy.sh
+  skip_cleanup: true
   on:
     branch: master
