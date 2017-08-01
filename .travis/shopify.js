@@ -17,8 +17,6 @@ fs.readFile(indexPagePath, "utf-8", function (err, data) {
                 body_html: data
             }
         };
-        console.log("Deploying Page Body: ", data);
-
         Shopify.put("/admin/pages/" + pageId + ".json", put_data, function (err, data, headers) {
             if (err) {
                 console.error("Failed to Deploy during API call");
