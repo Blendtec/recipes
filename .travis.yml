@@ -24,7 +24,7 @@ before_script:
 script:
 - npm run test:ci
 - pwd
-- ls
+- ls -al
 after_success:
 - ./node_modules/.bin/codecov
 notifications:
@@ -38,6 +38,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  scripts: /bin/sh .travis/deploy.sh
+  scripts: ./deploy.sh
   on:
     branch: master
