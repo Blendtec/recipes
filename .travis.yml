@@ -23,6 +23,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
+- npm run build
 - pwd
 - echo $TRAVIS_BUILD_DIR
 - ls $TRAVIS_BUILD_DIR
