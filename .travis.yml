@@ -37,6 +37,6 @@ env:
 deploy:
   skip_cleanup: true
   provider: script
-  scripts: /bin/sh .travis/deploy.sh
+  scripts: /bin/sh deploy.sh
   on:
     branch: master
