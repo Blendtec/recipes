@@ -23,6 +23,7 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
+- git branch -a
 after_success:
 - "./node_modules/.bin/codecov"
 notifications:
