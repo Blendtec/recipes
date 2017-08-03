@@ -23,7 +23,8 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 script:
 - npm run test:ci
-- git branch -a
+- if [ $TRAVIS_BRANCH = 'develop' ]; npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/; fi
+- if [ $TRAVIS_BRANCH = 'master' ]; npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/; fi
 after_success:
 - "./node_modules/.bin/codecov"
 notifications:
@@ -50,8 +51,6 @@ deploy:
 - provider: script
   skip_cleanup: true
   script: "./.travis/deploy.sh"
-  after_success:
-  - npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-client.blendtec.com/
   on:
     branch: master
 - provider: s3
@@ -68,8 +67,6 @@ deploy:
 - provider: script
   skip_cleanup: true
   script: "./.travis/deploy_stage.sh"
-  after_success:
-  - npm run build:ci https://s3-us-west-1.amazonaws.com/recipe-stage-client.blendtec.com/
   on:
     branch: develop
 
