@@ -9,9 +9,10 @@ var Shopify = new ShopifyAPI({
     access_token: process.env.SHOPIFY_API_PASSWORD
 });
 
-var indexPagePath = path.join(__dirname, "..", "dist", "index-stage.html");
+var indexPagePath = path.join(__dirname, "..", "dist", "index.html");
 fs.readFile(indexPagePath, "utf-8", function (err, data) {
     if (!err) {
+        data = data.replace(/<base\shref=[^>]*>/gi, '<base href="/pages/stage-recipes/">');
         var put_data = {
             page: {
                 body_html: data

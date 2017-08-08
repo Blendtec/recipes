@@ -9,7 +9,7 @@ var Shopify = new ShopifyAPI({
     access_token: process.env.SHOPIFY_API_PASSWORD
 });
 
-var indexPagePath = path.join(__dirname, "..", "dist", "index-main.html");
+var indexPagePath = path.join(__dirname, "..", "dist", "index.html");
 fs.readFile(indexPagePath, "utf-8", function (err, data) {
     if (!err) {
         var put_data = {
