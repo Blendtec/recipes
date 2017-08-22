@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { environment } from '../../environments/environment';
+import { DataService } from './../services/data.service';
 
 @Component({
   selector: 'app-about',
@@ -11,8 +12,16 @@ export class AboutComponent implements OnInit {
 
   version: string = environment.version;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() { }
+
+  callUrl() {
+    let url:string = "https://www.blendtec.com/recipes.json";
+
+    this.dataService.getDataFromURL(url)
+      .finally(() => {  })
+      .subscribe((out: any) => { console.log(out); });
+  }
 
 }
