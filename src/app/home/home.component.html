@@ -1,10 +1,7 @@
-<div class="container-fluid">
-  <div class="jumbotron text-center">
-    <h1>
-      <img class="logo" src="assets/angular-logo.svg" alt="angular logo"/>
-      <span translate>Hello world !</span>
-    </h1>
-    <app-loader [isLoading]="isLoading"></app-loader>
-    <q [hidden]="isLoading">{{quote}}</q>
-  </div>
+
+<div class="recipes-container" #recipeContainer>
+<div *ngFor="let recipe of recipes; let i = index">
+  <app-recipe-icon [recipe]="recipe" [placement]="i" (distanceToTop)="distanceToTop($event)" [enableImage]="recipe.imageLoad" [pageLocationFromTopOnLoad]="pageLocationFromTopOnLoad"></app-recipe-icon>
 </div>
+</div>
+    <app-loader [isLoading]="isLoading"></app-loader>

@@ -4,6 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
+import { DataService } from './../services/data.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,9 @@ import { AboutComponent } from './about.component';
   ],
   declarations: [
     AboutComponent
+  ],
+  providers: [
+    DataService
   ]
 })
 export class AboutModule { }

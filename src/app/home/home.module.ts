@@ -6,7 +6,9 @@ import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { QuoteService } from './quote.service';
+import { DataService } from './../services/data.service';
+import { RecipeIconComponent } from './recipe-icon/recipe-icon.component';
+import { WindowService } from '../services/window.service';
 
 @NgModule({
   imports: [
@@ -17,10 +19,12 @@ import { QuoteService } from './quote.service';
     HomeRoutingModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    RecipeIconComponent
   ],
   providers: [
-    QuoteService
+    DataService,
+    WindowService
   ]
 })
 export class HomeModule { }
