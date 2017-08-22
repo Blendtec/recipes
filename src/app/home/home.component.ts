@@ -4,12 +4,13 @@ import { Component, OnInit, HostListener, Inject, ElementRef, ViewChild } from '
 import { DataService } from '../services/data.service';
 import { DOCUMENT } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
+import { WindowService } from '../services/window.service';
 
-interface recipeList {
+interface RecipeList {
     recipes: any[];
 }
 
-interface placementAndPixelsToTop {
+interface PlacementAndPixelsToTop {
   placement: number,
   pixelsToTop: number
 }
@@ -25,11 +26,13 @@ export class HomeComponent implements OnInit {
   isLoading: boolean;
   recipes: any[];
   currentPage: number;
-  iconPlacementIcon: placementAndPixelsToTop[];
+  iconPlacementIcon: PlacementAndPixelsToTop[];
   pageLocationFromTopOnLoad: number;
   @ViewChild('recipeContainer') elementView: ElementRef;
 
-  constructor(private dataService: DataService, @Inject(DOCUMENT) private document: Document) {
+  constructor(private dataService: DataService,
+    @Inject(DOCUMENT) private docAng: Document,
+    private windowAng: WindowService) {
     this.recipes = [];
     this.currentPage = 1;
   }
@@ -38,8 +41,8 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
     this.dataService.getBaseRecipes(pageNum)
       .finally(() => { this.isLoading = false; })
-      .subscribe((out: recipeList) => {
-        for(let i in out.recipes) {
+      .subscribe((out: RecipeList) => {
+        for (let i = 0; i < out.recipes.length; i++) {
           out.recipes[i].imageLoad = false;
           this.recipes.push(out.recipes[i]);
         }
@@ -50,25 +53,25 @@ export class HomeComponent implements OnInit {
     this.callRecipes();
     this.recipes = [];
     this.iconPlacementIcon = [];
-    this.pageLocationFromTopOnLoad = this.document.body.scrollTop + window.innerHeight;
+    this.pageLocationFromTopOnLoad = this.docAng.body.scrollTop + this.windowAng.nativeWindow.innerHeight;
   }
 
-  distanceToTop(input: placementAndPixelsToTop) {
+  distanceToTop(input: PlacementAndPixelsToTop) {
     this.iconPlacementIcon.push(input);
   }
 
   loadIconImageByPixel(pixels: number) {
-    for (var i in this.iconPlacementIcon) {
+    for (const i in this.iconPlacementIcon) {
       if (this.iconPlacementIcon[i].pixelsToTop < pixels) {
         this.recipes[this.iconPlacementIcon[i].placement].imageLoad = true;
       }
     }
   }
 
-  @HostListener("window:scroll", [])
+  @HostListener('window:scroll', [])
   onWindowScroll() {
-    let currNumber = this.document.body.scrollTop + window.innerHeight;
-    let height = this.elementView.nativeElement.offsetHeight + this.elementView.nativeElement.offsetTop;
+    const currNumber = this.docAng.body.scrollTop + this.windowAng.nativeWindow.innerHeight;
+    const height = this.elementView.nativeElement.offsetHeight + this.elementView.nativeElement.offsetTop;
     this.loadIconImageByPixel(currNumber);
     if (height - currNumber < 10 && !this.isLoading) {
       this.currentPage++;

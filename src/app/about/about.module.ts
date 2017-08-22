@@ -16,7 +16,7 @@ import { DataService } from './../services/data.service';
     AboutComponent
   ],
   providers: [
-  	DataService
+    DataService
   ]
 })
 export class AboutModule { }

@@ -1,7 +1,7 @@
 <div *ngIf="showRecipe">
 <a href="/recipes/{{slug}}">
-<div style="height:370px;width:220px;">
-<img style="width:100%;" src="{{indexImageUrl}}">
+<div class="recipe-icon">
+<img class="width-100" [src]="indexImageUrl"/>
 </div>
 <div>{{ title }}</div>
 <div>{{ description }}</div>

@@ -8,6 +8,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { DataService } from './../services/data.service';
 import { RecipeIconComponent } from './recipe-icon/recipe-icon.component';
+import { WindowService } from '../services/window.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RecipeIconComponent } from './recipe-icon/recipe-icon.component';
     RecipeIconComponent
   ],
   providers: [
-    DataService
+    DataService,
+    WindowService
   ]
 })
 export class HomeModule { }

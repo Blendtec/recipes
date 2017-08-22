@@ -9,10 +9,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class DataService {
 
-	testNum: number = 0;
-  topRecipes: string = "https://www.blendtec.com/recipes";
-  recipeSlugBase: string = "https://www.blendtec.com/recipes/";
-  recipeCategoryBase: string = "https://www.blendtec.com/recipes/categories/";
+  testNum = 0;
+  topRecipes = 'https://www.blendtec.com/recipes';
+  recipeSlugBase = 'https://www.blendtec.com/recipes/';
+  recipeCategoryBase = 'https://www.blendtec.com/recipes/categories/';
 
 
   constructor(private http: Http) { }
@@ -26,23 +26,23 @@ export class DataService {
 
   getBaseRecipes(page: number = 0) {
     if (page === 0) {
-      return this.getDataFromURL(this.topRecipes + ".json");
+      return this.getDataFromURL(this.topRecipes + '.json');
     } else {
-      return this.getDataFromURL(this.topRecipes + "/index/page:" + page + ".json");
+      return this.getDataFromURL(this.topRecipes + '/index/page:' + page + '.json');
     }
   }
 
   getRceipeBySlug(slug: string) {
-    return this.getDataFromURL(this.recipeSlugBase + slug + ".json");
+    return this.getDataFromURL(this.recipeSlugBase + slug + '.json');
   }
 
   getRecipesByCategory(category: string) {
-    return this.getDataFromURL(this.recipeCategoryBase + category + ".json");
+    return this.getDataFromURL(this.recipeCategoryBase + category + '.json');
   }
 
   getTestNum() {
-  	this.testNum++;
-  	return this.testNum;
+    this.testNum++;
+    return this.testNum;
   }
 
 }

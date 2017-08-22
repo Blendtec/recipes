@@ -17,10 +17,9 @@ export class AboutComponent implements OnInit {
   ngOnInit() { }
 
   callUrl() {
-    let url:string = "https://www.blendtec.com/recipes.json";
+    const url = 'https://www.blendtec.com/recipes.json';
 
     this.dataService.getDataFromURL(url)
-      .finally(() => {  })
       .subscribe((out: any) => { console.log(out); });
   }
 

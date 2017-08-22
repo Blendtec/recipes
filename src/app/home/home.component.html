@@ -1,7 +1,7 @@
 
 <div class="recipes-container" #recipeContainer>
 <div *ngFor="let recipe of recipes; let i = index">
-  <app-recipe-icon [recipe]="recipe" [placement]="i" (distanceToTop)=distanceToTop($event) [enableImage]="recipe.imageLoad" [pageLocationFromTopOnLoad]="pageLocationFromTopOnLoad"></app-recipe-icon>
+  <app-recipe-icon [recipe]="recipe" [placement]="i" (distanceToTop)="distanceToTop($event)" [enableImage]="recipe.imageLoad" [pageLocationFromTopOnLoad]="pageLocationFromTopOnLoad"></app-recipe-icon>
 </div>
 </div>
     <app-loader [isLoading]="isLoading"></app-loader>
